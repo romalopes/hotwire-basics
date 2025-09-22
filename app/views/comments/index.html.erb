@@ -1,0 +1,11 @@
+<h1 class="text-2x1 font-bold mb-4">Live Comments</h1>
+<div class="mb-4">
+  <%= form_with(model: Comment.new, data: { turbo_stream: true, turbo_frame: "_top"}) do |form| %>
+    <%= form.text_area :title, rows:3, class:"w-full p-2 border rounded" %>
+    <%= form.submit "Post Comment", class: "mt-2 bg-blue-500 text-white px-4 py-2 rounded" %>
+  <% end %>
+</div>
+<div id="comments" class="space-y-4">
+  <%= turbo_stream_from "comments" %>
+  <%= render @comments %>
+</div>

@@ -1,0 +1,15 @@
+<% is_turbo ||= is_turbo %>
+<div id="<%= dom_id tip %>">
+  <p>
+    <strong>Title:</strong>
+    <%= tip.title %>
+  </p>
+  <%= link_to "Show this tip", tip %>
+</div>
+<% if is_turbo %>
+  <div>
+    <%= turbo_frame_tag "new_tip_model" do %>
+      <%= link_to "New tip", new_tip_path, data: { turbo_frame_tag: "new_tip_model"} %>
+    <% end %>
+  </div>
+<% end %>

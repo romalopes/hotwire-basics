@@ -1,0 +1,9 @@
+<% content_for :title, "New tip" %>
+<%= turbo_frame_tag "new_tip_model" do %>
+  <h1>New tip</h1>
+  <%= render "form", tip: @tip %>
+  <br>
+<% end %>
+<div>
+  <%= link_to "Back to tips", tips_path %>
+</div>

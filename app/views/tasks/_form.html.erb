@@ -1,0 +1,27 @@
+<%= form_with(model: task) do |form| %>
+  <% if task.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+      <ul>
+        <% task.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+  <div data-controller="char-count">
+    <%= form.label :description, style: "display: block; color:black" %>
+    <%#= form.text_field :description %>
+    <%= form.text_area :description, rows:3, data: { "char-count-target": "input", action: "input->char-count#update"}, class: ""  %>
+    <p class="" style="color: black;">
+      Characters: <span data-char-count-target="count">0</span>
+    </p>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

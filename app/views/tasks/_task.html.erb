@@ -1,0 +1,21 @@
+<!-- <div id="<%= dom_id task %>">
+  <p>
+    <strong>Title:</strong>
+    <%= task.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= task.description %>
+  </p>
+
+</div>
+
+-->
+<div data-controller="toggle" class="border p-4 mb-2 rounded shadow">
+  <h3 class="text-lg font-bold"> <%= task.title %></h3>
+  <button data-action="click->toggle#toggle" class="text-blue-600 underline mb-2" >Toggle Details</button>
+  <div data-toggle-target="details" class="hidden mt-2">
+    <p> <%= task.description %></p>
+  </div>
+</div>

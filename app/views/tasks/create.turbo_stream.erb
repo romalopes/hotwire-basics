@@ -1,0 +1,2 @@
+<%= turbo_stream.replace "new_task_model", "" %>
+<%= turbo_stream.append "tasks", partial:"tasks/task", locals: { task: @task} %>
